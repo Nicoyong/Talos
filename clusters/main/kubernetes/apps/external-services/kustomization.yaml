@@ -2,4 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - es-homeassistant/ks.yaml
-  - es-prusa/ks.yaml  - es-mesanges/ks.yaml
+  - es-prusa/ks.yaml  
+  - es-mesanges/ks.yaml

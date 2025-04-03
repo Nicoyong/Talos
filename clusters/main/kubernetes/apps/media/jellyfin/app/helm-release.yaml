@@ -78,6 +78,7 @@ spec:
                 enabled: true  # Active la restauration depuis NFS
               src:
                 enabled: true  # Active la sauvegarde automatique sur NFS
+                schedule: "0 2 * * *"  # Exécute la sauvegarde tous les jours à 2h du matin
                 
       multimedia:
         enabled: true

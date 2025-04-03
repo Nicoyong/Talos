@@ -86,6 +86,10 @@ spec:
                 nfs:
                   server: ${TRUENAS_IP}
                   path: /mnt/Raid/Backup/kubernetes/Jellyfin
+            src:  # Correction de l'erreur sur src
+              enabled: true
+            dest:
+              enabled: true        
 
               #server: ${TRUENAS_IP}  # Adresse IP de ton serveur TrueNAS
               #path: /mnt/Raid/Backup/kubernetes/Jellyfin  # Emplacement de la sauvegarde

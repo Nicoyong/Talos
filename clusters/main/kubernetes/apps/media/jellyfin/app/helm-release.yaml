@@ -66,10 +66,8 @@ spec:
     persistence:
       config:
           enabled: true
-          #type: emptyDir  # Utilisé temporairement car VolSync gère le volume
           type: pvc
           volsync:
-            name: config
             enabled: true # Activation de VolSync
             type: restic
             storageClassName: ""  # Pas nécessaire pour NFS

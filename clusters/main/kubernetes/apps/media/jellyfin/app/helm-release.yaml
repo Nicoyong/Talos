@@ -70,15 +70,30 @@ spec:
 
           volsync:
             - name: config
-              type: nfs
-              server: ${TRUENAS_IP}  # Adresse IP de ton serveur TrueNAS
-              path: /mnt/Raid/Backup/kubernetes/Jellyfin  # Emplacement de la sauvegarde
-              mountPath: /config  # Montage de VolSync dans le Pod
-              dest:
-                enabled: true  # Active la restauration depuis NFS
-              src:
-                enabled: true  # Active la sauvegarde automatique sur NFS
-                schedule: "0 2 * * *"  # Exécute la sauvegarde tous les jours à 2h du matin
+              type: restic
+              storageClassName: ""  # Pas nécessaire pour NFS
+              volumeSnapshotClassName: ""  # Pas utilisé ici
+              retain:
+                daily: 7  # Garde 7 sauvegardes journalières
+              trigger:
+                schedule: "0 2 * * *"  # Sauvegarde tous les jours à 2h du matin  
+              restic:
+              repository: nfs
+              copyMethod: Direct
+              prune: true
+              destination:
+                nfs:
+                  server: ${TRUENAS_IP}
+                  path: /mnt/Raid/Backup/kubernetes/Jellyfin
+
+              #server: ${TRUENAS_IP}  # Adresse IP de ton serveur TrueNAS
+              #path: /mnt/Raid/Backup/kubernetes/Jellyfin  # Emplacement de la sauvegarde
+              #mountPath: /config  # Montage de VolSync dans le Pod
+              #dest:
+              #  enabled: true  # Active la restauration depuis NFS
+              #src:
+              #  enabled: true  # Active la sauvegarde automatique sur NFS
+              #  schedule: "0 2 * * *"  # Exécute la sauvegarde tous les jours à 2h du matin
 
       multimedia:
         enabled: true

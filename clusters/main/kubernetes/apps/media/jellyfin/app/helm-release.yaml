@@ -69,16 +69,16 @@ spec:
           #type: emptyDir  # Utilisé temporairement car VolSync gère le volume
 
           volsync:
-            - name: config
-              enabled: true 
-              type: restic
-              storageClassName: ""  # Pas nécessaire pour NFS
-              volumeSnapshotClassName: ""  # Pas utilisé ici
-              retain:
-                daily: 7  # Garde 7 sauvegardes journalières
-              trigger:
+            name: config
+            enabled: true 
+            type: restic
+            storageClassName: ""  # Pas nécessaire pour NFS
+            volumeSnapshotClassName: ""  # Pas utilisé ici
+            retain:
+              daily: 7  # Garde 7 sauvegardes journalières
+            trigger:
                 schedule: "0 2 * * *"  # Sauvegarde tous les jours à 2h du matin  
-              restic:
+            restic:
               repository: nfs
               copyMethod: Direct
               prune: true

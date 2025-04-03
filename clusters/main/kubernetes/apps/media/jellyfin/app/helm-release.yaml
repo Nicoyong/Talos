@@ -67,10 +67,10 @@ spec:
       config:
           enabled: true
           #type: emptyDir  # Utilisé temporairement car VolSync gère le volume
-
+          type: pvc
           volsync:
             name: config
-            enabled: true 
+            enabled: true # Activation de VolSync
             type: restic
             storageClassName: ""  # Pas nécessaire pour NFS
             volumeSnapshotClassName: ""  # Pas utilisé ici
@@ -86,9 +86,9 @@ spec:
                 nfs:
                   server: ${TRUENAS_IP}
                   path: /mnt/Raid/Backup/kubernetes/Jellyfin
-            src:  # Correction de l'erreur sur src
+            src:  # Activation de la sauvegarde automatique
               enabled: true
-            dest:
+            dest: # Activation de la restauration
               enabled: true        
 
               #server: ${TRUENAS_IP}  # Adresse IP de ton serveur TrueNAS

@@ -70,6 +70,7 @@ spec:
 
           volsync:
             - name: config
+              enabled: true 
               type: restic
               storageClassName: ""  # Pas nécessaire pour NFS
               volumeSnapshotClassName: ""  # Pas utilisé ici

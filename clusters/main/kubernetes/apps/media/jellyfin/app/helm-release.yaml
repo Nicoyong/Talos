@@ -67,27 +67,27 @@ spec:
       config:
           enabled: true
           type: pvc
-          volsync:
-            enabled: true # Activation de VolSync
-            type: restic
-            storageClassName: ""  # Pas nécessaire pour NFS
-            volumeSnapshotClassName: ""  # Pas utilisé ici
-            retain:
-              daily: 7  # Garde 7 sauvegardes journalières
-            trigger:
-                schedule: "0 2 * * *"  # Sauvegarde tous les jours à 2h du matin  
-            restic:
-              repository: nfs
-              copyMethod: Direct
-              prune: true
-              destination:
-                nfs:
-                  server: ${TRUENAS_IP}
-                  path: /mnt/Raid/Backup/kubernetes/Jellyfin
-            src:  # Activation de la sauvegarde automatique
-              enabled: true
-            dest: # Activation de la restauration
-              enabled: true        
+          #volsync:
+          #  enabled: true # Activation de VolSync
+          #  type: restic
+          #  storageClassName: ""  # Pas nécessaire pour NFS
+          #  volumeSnapshotClassName: ""  # Pas utilisé ici
+          #  retain:
+          #    daily: 7  # Garde 7 sauvegardes journalières
+          #  trigger:
+          #      schedule: "0 2 * * *"  # Sauvegarde tous les jours à 2h du matin  
+          #  restic:
+          #    repository: nfs
+          #    copyMethod: Direct
+          #    prune: true
+          #    destination:
+          #      nfs:
+          #        server: ${TRUENAS_IP}
+          #        path: /mnt/Raid/Backup/kubernetes/Jellyfin
+          #  src:  # Activation de la sauvegarde automatique
+          #    enabled: true
+          #  dest: # Activation de la restauration
+          #    enabled: true        
 
               #server: ${TRUENAS_IP}  # Adresse IP de ton serveur TrueNAS
               #path: /mnt/Raid/Backup/kubernetes/Jellyfin  # Emplacement de la sauvegarde

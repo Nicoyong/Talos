@@ -34,12 +34,12 @@ spec:
     TZ: Europe/Paris
         
     credentials:
-    #  minio:
-    #    type: s3
-    #    url: "${S3_URL}"
-    #    bucket: "taloscluster"
-    #    accessKey: "${S3_ACCESKEY}"
-    #    secretKey: "${S3_SECRETKEY}"
+      minio:
+        type: s3
+        url: "${S3_URL}"
+        bucket: "taloscluster"
+        accessKey: "${S3_ACCESKEY}"
+        secretKey: "${S3_SECRETKEY}"
     #    encrKey: "${S3_ENCRKEY}"    
         
     service:
@@ -65,39 +65,14 @@ spec:
 
     persistence:
       config:
-          enabled: true
-          type: pvc
-          
-          volsync:
-            enabled: true # Activation de VolSync
+        volsync:
+          - name: config
             type: restic
-          #  storageClassName: ""  # Pas nécessaire pour NFS
-          #  volumeSnapshotClassName: ""  # Pas utilisé ici
-            retain:
-              daily: 7  # Garde 7 sauvegardes journalières
-            trigger:
-                schedule: "0 2 * * *"  # Sauvegarde tous les jours à 2h du matin  
-            restic:
-              repository: nfs
-          #    copyMethod: Direct
-          #    prune: true
-              destination:
-                nfs:
-                  server: ${TRUENAS_IP}
-                  path: /mnt/Raid/Backup/kubernetes/Jellyfin
-            src:  # Activation de la sauvegarde automatique
+            credentials: minio
+            dest:               #VolSync Destination (Restore)
               enabled: true
-            dest: # Activation de la restauration
-              enabled: true        
-
-              #server: ${TRUENAS_IP}  # Adresse IP de ton serveur TrueNAS
-              #path: /mnt/Raid/Backup/kubernetes/Jellyfin  # Emplacement de la sauvegarde
-              #mountPath: /config  # Montage de VolSync dans le Pod
-              #dest:
-              #  enabled: true  # Active la restauration depuis NFS
-              #src:
-              #  enabled: true  # Active la sauvegarde automatique sur NFS
-              #  schedule: "0 2 * * *"  # Exécute la sauvegarde tous les jours à 2h du matin
+            src:                #VolSync Source (Backup)
+              enabled: true
 
       multimedia:
         enabled: true

@@ -65,15 +65,13 @@ spec:
 
     persistence:
       config:
-      #config-backup:
-      #  enabled: true
-      #  type: nfs
-      #  server: ${TRUENAS_IP}  # Adresse IP de ton TrueNAS
-      #  path: /mnt/Seag/Multimedia # Chemin où stocker les sauvegardes
-      #  mountPath: /configBackup  # Où Jellyfin va voir les fichiers        
+          enabled: true
+          type: emptyDir  # Utilisé temporairement car VolSync gère le volume
+        
       multimedia:
         enabled: true
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/Seag/Multimedia
         mountPath: /data/multimedia
+    

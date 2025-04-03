@@ -66,7 +66,7 @@ spec:
     persistence:
       config:
           enabled: true
-          type: emptyDir  # Utilisé temporairement car VolSync gère le volume
+          #type: emptyDir  # Utilisé temporairement car VolSync gère le volume
 
           volsync:
             - name: config
@@ -79,7 +79,7 @@ spec:
               src:
                 enabled: true  # Active la sauvegarde automatique sur NFS
                 schedule: "0 2 * * *"  # Exécute la sauvegarde tous les jours à 2h du matin
-                
+
       multimedia:
         enabled: true
         type: nfs

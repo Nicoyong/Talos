@@ -44,8 +44,8 @@ spec:
         
     service:
       main:
-        #type: LoadBalancer
-        #loadBalancerIP: ${IP_JELLYFIN}  
+        type: LoadBalancer
+        loadBalancerIP: ${IP_JELLYFIN}  
         
     #ingress:
       #main:

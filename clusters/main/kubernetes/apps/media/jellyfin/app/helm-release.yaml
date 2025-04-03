@@ -67,7 +67,18 @@ spec:
       config:
           enabled: true
           type: emptyDir  # Utilisé temporairement car VolSync gère le volume
-        
+
+          volsync:
+            - name: config
+              type: nfs
+              server: ${TRUENAS_IP}  # Adresse IP de ton serveur TrueNAS
+              path: /mnt/Raid/Backup/kubernetes/Jellyfin  # Emplacement de la sauvegarde
+              mountPath: /config  # Montage de VolSync dans le Pod
+              dest:
+                enabled: true  # Active la restauration depuis NFS
+              src:
+                enabled: true  # Active la sauvegarde automatique sur NFS
+                
       multimedia:
         enabled: true
         type: nfs

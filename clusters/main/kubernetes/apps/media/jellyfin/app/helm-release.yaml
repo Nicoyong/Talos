@@ -36,12 +36,12 @@ spec:
     credentials:
       minio:
         type: s3
-        #url: "${S3_URL}"
-        url: "https://192.168.0.225:9000"
+        url: "${S3_URL}"
+        #url: "https://192.168.0.225:9000"
         bucket: "taloscluster"
         accessKey: "${S3_ACCESKEY}"
         secretKey: "${S3_SECRETKEY}"
-    #    encrKey: "${S3_ENCRKEY}"    
+        encrKey: "${S3_ENCRKEY}"    
         
     service:
       main:

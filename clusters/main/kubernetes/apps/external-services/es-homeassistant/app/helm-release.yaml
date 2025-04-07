@@ -32,7 +32,7 @@ spec:
       main:
         type: ExternalIP
         #externalIP: "${HOMEASSISTANT_IP}"
-        externalIP: "192.168.0.2"
+        externalIP: 192.168.0.2
         useSlice: false
         ports:
           main:

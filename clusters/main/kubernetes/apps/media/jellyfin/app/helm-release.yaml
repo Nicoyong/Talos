@@ -47,21 +47,21 @@ spec:
         type: LoadBalancer
         loadBalancerIP: ${IP_JELLYFIN}  
         
-    #ingress:
-      #main:
-        #enabled: true
-        #ingressClassName: traefik  
-        #hosts:
-          #- host: jellyfin.${DOMAIN_0}
-        #integrations:
-          #traefik:
-            #enabled: true
-            ##middlewares:
-              ##- name: local
-                ##namespace: traefik
-          #certManager:
-            #enabled: true
-            #certificateIssuer: domain-0-le-prod        
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: ""  
+        hosts:
+          - host: jellyfin.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix        
+        integrations:
+          traefik:
+            enabled: true
+          certManager:
+            enabled: true
+            certificateIssuer: domain-0-le-prod        
 
     persistence:
       config:

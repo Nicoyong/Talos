@@ -78,6 +78,6 @@ spec:
         enabled: true
         type: nfs
         server: ${TRUENAS_IP}
-        path: /mnt/Seag/Multimedia
+        path: ${JELLYFIN_NFS_PATH}
         mountPath: /data/multimedia
     

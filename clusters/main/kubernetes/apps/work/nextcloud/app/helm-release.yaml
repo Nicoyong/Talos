@@ -102,25 +102,25 @@ spec:
               enabled: true
               trigger:
                 schedule: 20 1 * * *
-    nextcloud:
-      collabora:
-        enabled: true
-        password: "${NEXTCLOUD_PASSWORD}"
-      credentials:
-        initialAdminPassword: "${NEXTCLOUD_PASSWORD}"
-        initialAdminUser: "${NEXTCLOUD_USER}"
-      general:
-        #accessIP: ${NGINX_EXTERNAL_IP}
-        default_phone_region: FR
-      previews:
-        providers:
-        - BMP
-        - GIF
-        - JPEG
-        - Krita
-        - MarkDown
-        - MP3
-        - OpenDocument
-        - PNG
-        - TXT
+      nextcloud:
+        collabora:
+          enabled: true
+          password: "${NEXTCLOUD_PASSWORD}"
+        credentials:
+          initialAdminPassword: "${NEXTCLOUD_PASSWORD}"
+          initialAdminUser: "${NEXTCLOUD_USER}"
+        general:
+          #accessIP: ${NGINX_EXTERNAL_IP}
+          default_phone_region: FR
+        previews:
+          providers:
+          - BMP
+          - GIF
+          - JPEG
+          - Krita
+          - MarkDown
+          - MP3
+          - OpenDocument
+          - PNG
+          - TXT
           - XBitmap

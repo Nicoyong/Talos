@@ -93,14 +93,14 @@ spec:
         server: ${TRUENAS_IP}
       html:
         volsync:
-        - name: html
-          type: restic
-          credentials: minio
-          dest:
-            enabled: true
-          src:
-            enabled: true
-            trigger:
+          - name: html
+            type: restic
+            credentials: minio
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
               schedule: 20 1 * * *
     nextcloud:
       collabora:

@@ -56,71 +56,71 @@ spec:
             enabled: true
             certificateIssuer: domain-0-le-prod
 
-      cnpg:
-        main:
-          cluster:
-            singleNode: true
-          pgVersion: 15
-          mode: recovery
-          backups:
+    cnpg:
+      main:
+        cluster:
+          singleNode: true
+        pgVersion: 15
+        mode: recovery
+        backups:
+          enabled: true
+          credentials: minio
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 2 0 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false
+        recovery:
+          method: object_store
+          credentials: minio
+    persistence:
+      config:
+        volsync:
+        - name: config
+          type: restic
+          credentials: minio
+          dest:
             enabled: true
-            credentials: minio
-            scheduledBackups:
-              - name: daily-backup
-                schedule: "0 2 0 * * *"
-                backupOwnerReference: self
-                immediate: true
-                suspend: false
-          recovery:
-            method: object_store
-            credentials: minio
-      persistence:
-        config:
-          volsync:
-          - name: config
-            type: restic
-            credentials: minio
-            dest:
-              enabled: true
-            src:
-              enabled: true
-              trigger:
-                schedule: 10 1 * * *
-        data:
-          enabled: true
-          type: nfs
-          path: ${NEXTCLOUD_NFS_PATH}
-          server: ${TRUENAS_IP}
-        html:
-          volsync:
-          - name: html
-            type: restic
-            credentials: minio
-            dest:
-              enabled: true
-            src:
-              enabled: true
-              trigger:
-                schedule: 20 1 * * *
-      nextcloud:
-        collabora:
-          enabled: true
-          password: "${NEXTCLOUD_PASSWORD}"
-        credentials:
-          initialAdminPassword: "${NEXTCLOUD_PASSWORD}"
-          initialAdminUser: "${NEXTCLOUD_USER}"
-        general:
-          #accessIP: ${NGINX_EXTERNAL_IP}
-          default_phone_region: FR
-        previews:
-          providers:
-          - BMP
-          - GIF
-          - JPEG
-          - Krita
-          - MarkDown
-          - MP3
-          - OpenDocument
-          - PNG
-          - TXT
-          - XBitmap
+          src:
+            enabled: true
+            trigger:
+              schedule: 10 1 * * *
+      data:
+        enabled: true
+        type: nfs
+        path: ${NEXTCLOUD_NFS_PATH}
+        server: ${TRUENAS_IP}
+      html:
+        volsync:
+        - name: html
+          type: restic
+          credentials: minio
+          dest:
+            enabled: true
+          src:
+            enabled: true
+            trigger:
+              schedule: 20 1 * * *
+    nextcloud:
+      collabora:
+        enabled: true
+        password: "${NEXTCLOUD_PASSWORD}"
+      credentials:
+        initialAdminPassword: "${NEXTCLOUD_PASSWORD}"
+        initialAdminUser: "${NEXTCLOUD_USER}"
+      general:
+        #accessIP: ${NGINX_EXTERNAL_IP}
+        default_phone_region: FR
+      previews:
+        providers:
+        - BMP
+        - GIF
+        - JPEG
+        - Krita
+        - MarkDown
+        - MP3
+        - OpenDocument
+        - PNG
+        - TXT
+        - XBitmap

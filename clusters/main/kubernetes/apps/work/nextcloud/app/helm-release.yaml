@@ -85,7 +85,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 10 1 * * *
+                schedule: "10 1 * * *"
       data:
         enabled: true
         type: nfs
@@ -101,7 +101,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 20 1 * * *
+                schedule: "20 1 * * *"
     nextcloud:
       collabora:
         enabled: true

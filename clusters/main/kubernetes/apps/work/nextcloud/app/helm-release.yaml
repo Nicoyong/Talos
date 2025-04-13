@@ -89,7 +89,7 @@ spec:
       data:
         enabled: true
         type: nfs
-        path: /${NEXTCLOUD_NFS_PATH}
+        path: ${NEXTCLOUD_NFS_PATH}
         server: ${TRUENAS_IP}
       html:
         volsync:

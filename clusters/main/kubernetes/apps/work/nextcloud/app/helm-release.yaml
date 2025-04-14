@@ -64,12 +64,8 @@ spec:
         backups:
           enabled: true
           credentials: minio
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 2 0 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false
+#          scheduledBackups:
+
         recovery:
           method: object_store
           credentials: minio
@@ -83,8 +79,6 @@ spec:
               enabled: true
             src:
               enabled: true
-              trigger:
-                schedule: "10 1 * * *"
       data:
         enabled: true
         type: nfs
@@ -99,8 +93,7 @@ spec:
               enabled: true
             src:
               enabled: true
-              trigger:
-                schedule: "20 1 * * *"
+
     nextcloud:
       collabora:
         enabled: true

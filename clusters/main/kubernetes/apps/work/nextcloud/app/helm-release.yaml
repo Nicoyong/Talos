@@ -16,9 +16,9 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-    maxHistory: 10        
-    driftDetection:
-      mode: warn
+  maxHistory: 10        
+  driftDetection:
+    mode: warn
   install:
     createNamespace: true
     crds: CreateReplace

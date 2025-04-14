@@ -60,7 +60,6 @@ spec:
       main:
         cluster:
           singleNode: true
-        pgVersion: 1
         mode: standalone #recovery
         backups:
           enabled: true

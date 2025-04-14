@@ -85,12 +85,12 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 10 1 * * *
+                schedule: "10 1 * * *""
       data:
         enabled: true
         type: nfs
-        path: ${NEXTCLOUD_NFS_PATH}
-        server: ${TRUENAS_IP}
+        path: "${NEXTCLOUD_NFS_PATH}"
+        server: "${TRUENAS_IP}"
       html:
         volsync:
           - name: html
@@ -101,7 +101,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 20 1 * * *
+                schedule: "20 1 * * *"
     nextcloud:
       collabora:
         enabled: true

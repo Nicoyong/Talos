@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - external-services
   - media
- # - work
+  - work
   - kubernetes-dashboard/ks.yaml

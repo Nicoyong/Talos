@@ -61,7 +61,7 @@ spec:
         cluster:
           singleNode: true
         pgVersion: 15
-        mode: recovery
+        mode: standalone #recovery
         backups:
           enabled: true
           credentials: minio

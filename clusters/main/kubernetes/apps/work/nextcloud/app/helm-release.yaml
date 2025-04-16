@@ -45,8 +45,7 @@ spec:
         enabled: true
         ingressClassName: ""
         hosts:
-          - host: temps.${DOMAIN_0}
-          #- host: cloud.${DOMAIN_0}
+          - host: cloud.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix  
@@ -61,7 +60,7 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: standalone #recovery
+        mode: recovery #standalone
         backups:
           enabled: true
           credentials: minio

@@ -64,7 +64,6 @@ spec:
         backups:
           enabled: true
           credentials: minio
-          scheduledBackups:
         recovery:
           method: object_store
           credentials: minio

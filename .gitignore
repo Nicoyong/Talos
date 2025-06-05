@@ -1,11 +1,18 @@
+# Clé age
 age.agekey
+
+# Fichiers ClusterTool (binaire, temporaires, etc.)
 ^clustertool.exe
 ^clustertool*
 ^clustertool
 *clustertool.exe
 clustertool.exe
 clustertool
+
+# Fichiers SOPS secrets
 sopssecret.yaml
 sopssecret*
 *sopssecret*
+
+# Répertoire mounts
 mounts/

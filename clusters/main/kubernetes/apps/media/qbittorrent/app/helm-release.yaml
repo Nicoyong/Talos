@@ -79,7 +79,10 @@ spec:
     #      certManager:
     #        enabled: true
     #        certificateIssuer: domain-0-le-prod
-
+    env:
+      QBT_RUNASROOT: "false"
+      QBITTORRENT__WEBUI__USERNAME: ${QBITTORRENT_USER}
+      QBITTORRENT__WEBUI__PASSWORD: ${QBITTORRENT_PASSWORD}
     persistence:
       config:
         enabled: true

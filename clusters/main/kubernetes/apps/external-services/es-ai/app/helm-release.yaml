@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: es-prusa
+  name: es-ai
   namespace: external-services
 spec:
   interval: 15m
@@ -31,18 +31,18 @@ spec:
     service:
       main:
         type: ExternalIP
-        externalIP: "${PRUSA_IP}"
+        externalIP: ${AI_IP}
         useSlice: false
         ports:
           main:
             protocol: http
-            port: ${PRUSA_PORT}
+            port: ${AI_PORT}
     ingress:
       main:
         enabled: true
         ingressClassName: "" # "internal"
         hosts:
-          - host: prusa.${DOMAIN_0}
+          - host: ai.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix

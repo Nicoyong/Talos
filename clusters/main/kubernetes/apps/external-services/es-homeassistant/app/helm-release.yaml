@@ -31,13 +31,12 @@ spec:
     service:
       main:
         type: ExternalIP
-        #externalIP: "${HOMEASSISTANT_IP}"
-        externalIP: 192.168.0.2
+        externalIP: ${HOMEASSISTANT_IP}
         useSlice: false
         ports:
           main:
             protocol: http
-            port: 8123
+            port: ${HOMEASSISTANT_PORT}
     ingress:
       main:
         enabled: true

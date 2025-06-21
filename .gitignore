@@ -16,3 +16,4 @@ sopssecret*
 
 # Répertoire mounts
 mounts/
+.continue/

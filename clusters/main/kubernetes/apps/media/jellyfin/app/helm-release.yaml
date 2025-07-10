@@ -9,7 +9,8 @@ spec:
   chart:
     spec:
       chart: jellyfin
-      version: 28.12.9
+      version: 20.6.25
+      #version: 28.12.9
       sourceRef:
         kind: HelmRepository
         name: truecharts
